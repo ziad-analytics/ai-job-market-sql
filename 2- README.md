@@ -1,13 +1,38 @@
-## AI Job Market SQL Analysis
+# AI Job Market SQL Analysis
 
-This project analyzes AI job market data using SQL to extract insights about salaries, job demand, and global trends.
+## 📊 Overview
+This project analyzes AI job market data using SQL to extract insights about salaries, demand, and global trends.
 
-## Sections
+---
+
+## 📌 Key Insights
+
+### KPI Dashboard
+![KPI](KPI Dashboard.png)
+
+### Top Paying Jobs
+![Jobs](Top Paying Jobs.png)
+
+### Job Demand by Country
+![Country](Job Demand by Country.png)
+
+### Data Understanding
+![Data](Data Understanding.png)
+
+### Data Quality Check
+![Quality](Data Quality Check.png)
+
+---
+
+## 🧠 Analysis Sections
 - Data Understanding
 - Data Quality Check
 - Core Analysis
-- KPIs
-- Advanced Analysis
+- KPI Metrics
+- Advanced Insights
 
-## Tools Used
-SQL (MySQL / PostgreSQL)
+---
+
+## 🛠 Tools Used
+- SQL (MySQL / PostgreSQL)
+- GitHub for version control
