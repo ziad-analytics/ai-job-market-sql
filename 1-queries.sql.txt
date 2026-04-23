@@ -1,0 +1,83 @@
+-- DATA UNDERSTANDING
+
+SELECT COUNT(*) AS total_rows
+FROM ai_job_market_dataset;
+
+SELECT *
+FROM ai_job_market_dataset
+LIMIT 10;
+
+DESCRIBE ai_job_market_dataset;
+
+-- DATA QUALITY CHECK
+
+SELECT *
+FROM ai_job_market_dataset
+WHERE Salary IS NULL
+   OR Job_Title IS NULL
+   OR Country IS NULL
+   OR Experience_Level IS NULL;
+
+-- Duplicate check
+SELECT Job_Title, Country, Salary, COUNT(*) AS duplicates
+FROM ai_job_market_dataset
+GROUP BY Job_Title, Country, Salary
+HAVING COUNT(*) > 1;
+
+-- CORE ANALYSIS
+
+SELECT Job_Title, Salary
+FROM ai_job_market_dataset
+ORDER BY Salary DESC
+LIMIT 10;
+
+SELECT Job_Title, COUNT(*) AS total_jobs
+FROM ai_job_market_dataset
+GROUP BY Job_Title
+ORDER BY total_jobs DESC;
+
+SELECT Country, COUNT(*) AS total_jobs
+FROM ai_job_market_dataset
+GROUP BY Country
+ORDER BY total_jobs DESC;
+
+SELECT Job_Title, AVG(Salary) AS avg_salary
+FROM ai_job_market_dataset
+GROUP BY Job_Title
+ORDER BY avg_salary DESC;
+
+-- GLOBAL KPI DASHBOARD
+
+SELECT 
+    COUNT(*) AS total_jobs,
+    ROUND(AVG(Salary), 2) AS avg_salary,
+    MAX(Salary) AS max_salary,
+    MIN(Salary) AS min_salary
+FROM ai_job_market_dataset;
+
+-- ADVANCED ANALYSIS
+
+SELECT 
+    CASE 
+        WHEN Salary < 50000 THEN 'Low'
+        WHEN Salary BETWEEN 50000 AND 100000 THEN 'Mid'
+        WHEN Salary BETWEEN 100000 AND 150000 THEN 'High'
+        ELSE 'Very High'
+    END AS salary_band,
+    COUNT(*) AS total_jobs
+FROM ai_job_market_dataset
+GROUP BY salary_band;
+
+SELECT Country, AVG(Salary) AS avg_salary
+FROM ai_job_market_dataset
+GROUP BY Country
+ORDER BY avg_salary DESC
+LIMIT 3;
+
+SELECT Job_Title,
+       COUNT(*) AS total_jobs,
+       AVG(Salary) AS avg_salary
+FROM ai_job_market_dataset
+GROUP BY Job_Title
+ORDER BY avg_salary DESC
+LIMIT 5;
