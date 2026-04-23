@@ -1,1 +1,1 @@
-# ai-job-market-sql
+sql-job-market-project
